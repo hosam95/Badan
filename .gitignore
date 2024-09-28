@@ -1,8 +1,5 @@
 node_modules
-<<<<<<< HEAD
-=======
 .env
 secrets
 secrets.json
 dist
->>>>>>> f0a9ad157d37d0e3e5cd3242cdb0e396d434f441
