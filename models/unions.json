@@ -1,0 +1,9 @@
+{
+    "ride_phases":["driver_on_the_way","ready_to_pickup","journey_started","arrived","canceled"],
+    "estimate_phases":["pre_order","looking_for_vehicle","request_failed","linked"],    
+    "order_responses":["accepted","rejected","expired","canceled"],
+    "roles":["user","admin","driver"],
+    "vehicleTypes":["car","bus","minibus"],
+    "ride_report_types":["client","driver","adminstration"],
+    "application_status":["incomplete","pending","approved","rejected"]
+}
