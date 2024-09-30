@@ -265,8 +265,8 @@
         <mxCell id="6JdxFMKGJGce-00UMF8G-5" value="Verify OTP (secret, otp)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=15;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-25">
           <mxGeometry x="214" y="1028" width="192" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="v1ZU1jeRRtBtOZHkuNUI-110" value="server side process" style="swimlane;startSize=0;swimlaneFillColor=#4C0099;fontStyle=1;align=left;fontSize=14;labelBackgroundColor=default;labelBorderColor=default;whiteSpace=wrap;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-25">
-          <mxGeometry x="-77" y="1101" width="200" height="200" as="geometry" />
+        <mxCell id="v1ZU1jeRRtBtOZHkuNUI-110" value="verify identifier logic (secret_id, secret)" style="swimlane;startSize=0;swimlaneFillColor=#4C0099;fontStyle=1;align=left;fontSize=14;labelBackgroundColor=default;labelBorderColor=default;whiteSpace=wrap;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-25">
+          <mxGeometry x="-77" y="1101" width="367" height="200" as="geometry" />
         </mxCell>
         <mxCell id="mAUX-7upIq6EtIR3mSXo-3" value="" style="group" vertex="1" connectable="0" parent="v1ZU1jeRRtBtOZHkuNUI-102">
           <mxGeometry x="558" y="528.85" width="271" height="473.15" as="geometry" />
