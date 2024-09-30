@@ -1,11 +1,11 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.16" pages="2">
   <diagram name="Page-1" id="pteTAIGlAc0p7t94jHmJ">
-    <mxGraphModel dx="1909" dy="949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="808" dy="402" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="v1ZU1jeRRtBtOZHkuNUI-102" value="Linking" style="swimlane;startSize=0;align=left;swimlaneFillColor=#e9dddd;opacity=50;perimeterSpacing=1;fontColor=#333333;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="10" y="230" width="1450" height="2410" as="geometry" />
+          <mxGeometry x="10" y="230" width="1657" height="2410" as="geometry" />
         </mxCell>
         <mxCell id="v1ZU1jeRRtBtOZHkuNUI-1" value="" style="group" vertex="1" connectable="0" parent="v1ZU1jeRRtBtOZHkuNUI-102">
           <mxGeometry x="761" y="2110" width="460" height="242" as="geometry" />
@@ -265,9 +265,6 @@
         <mxCell id="6JdxFMKGJGce-00UMF8G-5" value="Verify OTP (secret, otp)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=15;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-25">
           <mxGeometry x="214" y="1028" width="192" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="v1ZU1jeRRtBtOZHkuNUI-110" value="verify identifier logic (secret_id, secret)" style="swimlane;startSize=0;swimlaneFillColor=#4C0099;fontStyle=1;align=left;fontSize=14;labelBackgroundColor=default;labelBorderColor=default;whiteSpace=wrap;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-25">
-          <mxGeometry x="-77" y="1101" width="367" height="200" as="geometry" />
-        </mxCell>
         <mxCell id="mAUX-7upIq6EtIR3mSXo-3" value="" style="group" vertex="1" connectable="0" parent="v1ZU1jeRRtBtOZHkuNUI-102">
           <mxGeometry x="558" y="528.85" width="271" height="473.15" as="geometry" />
         </mxCell>
@@ -404,6 +401,9 @@
         </mxCell>
         <mxCell id="v1ZU1jeRRtBtOZHkuNUI-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="v1ZU1jeRRtBtOZHkuNUI-102" source="v1ZU1jeRRtBtOZHkuNUI-27" target="6JdxFMKGJGce-00UMF8G-5">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="v1ZU1jeRRtBtOZHkuNUI-110" value="verify identifier logic (secret_id, secret)" style="swimlane;startSize=0;swimlaneFillColor=#4C0099;fontStyle=1;align=left;fontSize=14;labelBackgroundColor=default;labelBorderColor=default;whiteSpace=wrap;" vertex="1" parent="v1ZU1jeRRtBtOZHkuNUI-102">
+          <mxGeometry x="560" y="1260" width="367" height="200" as="geometry" />
         </mxCell>
         <mxCell id="_Lz6I93l5ru_T4zFbFvI-14" value="color map" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;strokeColor=default;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="10" y="10" width="272" height="150" as="geometry" />
