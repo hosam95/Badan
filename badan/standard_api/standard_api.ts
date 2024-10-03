@@ -1,8 +1,8 @@
-import { ValidationChain } from 'express-validator';
-import { Request, Response } from 'express';
 import { RolesUnion, User } from '../../models/user.js';
 import Jwt from 'jsonwebtoken';
 import typia from 'typia';
+
+export type Response = (status:number,response:any)=> void
 
 export interface RequestData{
     body:any;
@@ -12,8 +12,6 @@ export interface RequestData{
 }
 
 export class StandardApi{
-    express_validators:Array<ValidationChain>=[]
-    /**@todo:set the authentication system to a roles base */
     require_auth:boolean=false;
     allowed_roles:Array<RolesUnion>=[]
 
@@ -21,7 +19,7 @@ export class StandardApi{
         this.handler=this.handler.bind(this);
     }
     
-    handler(req:Request,res:Response){
+    handler(req:RequestData,res:Response){
         this.authenticate(req,res);
     }
 
@@ -34,7 +32,7 @@ export class StandardApi{
         this.Logic(req,respond)
     }
 
-    Logic(data:RequestData,respond:(status:number,response:any)=> void){}
+    Logic(data:RequestData,respond:Response){}
     
     async authenticate(req:any,res:any){
         if(!this.require_auth){
