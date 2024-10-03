@@ -3,14 +3,16 @@ import typia, { tags } from "typia";
 
 import { User } from './models/user.js';
 import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config()
 /*
 import { setRouts } from './routs.js';
-import dotenv from 'dotenv';
 import { setup_ws } from './ws_setup.js';
 import cors from 'cors'
 import config from './config.json' assert{type:'json'}
 
-dotenv.config()
+
 
 const app=express();
 let port=process.env.PORT || 4000;

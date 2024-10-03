@@ -4,7 +4,10 @@
     },
     "baseURL":"http://127.0.0.1:4000",
     "auth": {
-        "tokenExpiry": 1440
+        "tokenExpiry": 1440,
+        "refresh_token_life_span_in_days":14,
+        "refresh_token_max_sleep_period_in_hours":332,
+        "access_token_live_limit":"1h"
     },
     "mail":{
         "email":"auth2574@gmail.com",
