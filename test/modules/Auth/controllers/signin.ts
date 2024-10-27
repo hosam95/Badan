@@ -4,10 +4,18 @@ import { DB } from "../../../utils/db/db.js";
 import jwt, { Secret } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import config from '../../../config.json' assert{type:'json'}
-import { createValidate } from "typia";
+import typia, { createValidate } from "typia";
+import { ILlmSchema } from "@samchon/openapi";
 
 class Signin extends StandardApi{
+    override url: string='/signin';
+
+    override description: string="send the email and password, and you will receive an email at the provided email to confirm your identity";
+
     override body_validator= createValidate<{email:string,password:string}>();
+
+    override body_schema?: ILlmSchema | undefined=typia.llm.schema<{email:string,password:string}>();
+    
 
     override async Logic(data: RequestData, respond: Response): Promise<void> {
         let {email,password}=data.body
