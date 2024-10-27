@@ -1,0 +1,23 @@
+{
+  "name": "badan-expresser",
+  "version": "1.0.0",
+  "description": "A serializer to use Express as the core of Badan",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hosam95/Badan-Expresser.git"
+  },
+  "keywords": [
+    "badan",
+    "express"
+  ],
+  "author": "Hosam Saeed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hosam95/Badan-Expresser/issues"
+  },
+  "homepage": "https://github.com/hosam95/Badan-Expresser#readme"
+}
