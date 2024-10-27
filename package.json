@@ -2,9 +2,9 @@
   "name": "badan-expresser",
   "version": "1.0.0",
   "description": "A serializer to use Express as the core of Badan",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/hosam95/Badan-Expresser/issues"
   },
-  "homepage": "https://github.com/hosam95/Badan-Expresser#readme"
+  "homepage": "https://github.com/hosam95/Badan-Expresser#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
 }
