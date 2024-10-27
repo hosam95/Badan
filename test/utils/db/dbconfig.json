@@ -1,9 +1,0 @@
-{
-    "main_db": {
-        "username":"dev-server",
-        "password":"IME6t3nbdKUmCczd",
-        "host": "127.0.0.1",
-        "port": 27017,
-        "name": "tawseltkDB"
-    }
-}
