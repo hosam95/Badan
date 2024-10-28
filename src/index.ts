@@ -1,4 +1,4 @@
-import { BadanCoreSerializer, Respond, Use } from "badan-serializers";
+import { BadanCoreSerializer, Respond, Use, Responder } from "badan-serializers";
 import { RequestHandler, Response, Application, Request } from 'express'
 
 export class BadanExpresser extends BadanCoreSerializer{
@@ -15,4 +15,4 @@ export class BadanExpresser extends BadanCoreSerializer{
     }
 }
 
-export { Respond, Use, Response, Request, Application }
+export { Responder, Respond, Use, Response, Request, Application }
