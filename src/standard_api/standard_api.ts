@@ -1,10 +1,13 @@
-import { RolesUnion, User } from '../../test/models/user.js'; /**@todo: include to the package */
+import { RolesUnion, User } from '../../../test/models/user.js'; /**@todo: include to the package */
 import Jwt from 'jsonwebtoken';
 import typia from 'typia';
 import { schema_to_json } from '../DocGen/typia_schema_parser.js';
-import { ExpressPipe, RequestData, Responder } from './pipes.js';
-import { Request, Response } from 'express';
 
+import { Respond } from 'badan-expresser'
+import { RequestData } from 'types.js';
+
+/**@todo: consider writing the input validator by your self using the input schemas to avoid redundancy but check the performance in comparison to typia */
+/**@todo: consider migrating the standard-api logic to an express-pipe like pipe with the (req,res) parser at it's beginning */
 
 
 export abstract class StandardApi{
@@ -21,6 +24,7 @@ export abstract class StandardApi{
     abstract url:string;
     method:"Get"|"Post"|"Put"|"Delete"|"Patch"='Get'
 
+    Responder:(res:any)=>Respond=(res:any)=> (status:number,response:any)=>{};
 
     constructor(){
         this.handler=this.handler.bind(this);
@@ -28,19 +32,19 @@ export abstract class StandardApi{
     
     handler(req:Request,res:Response){
         
-        //calss the auth checker
+        //calls the auth checker
         // parse the Express(req,res) to Badan(req,respond)
-        this.authenticate(req,ExpressPipe.Responder(res));
+        this.authenticate(req,this.Responder(res));
     }
 
-    Controller(req:RequestData,respond:Responder){
+    Controller(req:RequestData,respond:Respond){
 
         this.Logic(req,respond)
     }
 
-    Logic(data:RequestData,respond:Responder){}
+    Logic(data:RequestData,respond:Respond){}
     
-    async authenticate(req:any,respond:Responder){
+    async authenticate(req:any,respond:Respond){
         if(!this.require_auth){
             this.validateInput(req,respond)
             return
@@ -65,7 +69,7 @@ export abstract class StandardApi{
 
     }
 
-    roleAuthorization(req:any,respond:Responder){
+    roleAuthorization(req:any,respond:Respond){
         
         if(req.user.roles.includes("admin")||this.allowed_roles.length==0){
             this.validateInput(req,respond);
@@ -82,7 +86,7 @@ export abstract class StandardApi{
         respond(403,{"error":"authorization failed, you dont have access to this api"})
     }
     
-    validateInput(req:any,respond:Responder){
+    validateInput(req:any,respond:Respond){
         let queryValidation=this.query_validator(req.query)
         let bodyValidation=this.body_validator(req.body)
 
