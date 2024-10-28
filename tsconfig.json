@@ -10,16 +10,7 @@
         "sourceMap": true,
         "strict": true,
         "strictNullChecks": true,
-        "outDir": "dist", //Specifies the transpiler directory. 
-        "plugins": [
-            { "transform": "typia/lib/transform" }
-        ]
-        
+        "outDir": "dist", //Specifies the transpiler directory.         
     },
     "include": ["./**/*"],
-    "ts-node": {
-        "experimentalSpecifierResolution": "node",
-        "compiler": "ts-patch/compiler"
-        /*"esm": true*/
-    }
 }
