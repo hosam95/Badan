@@ -1,7 +1,7 @@
 import { BadanCoreSerializer, Respond, Use } from "badan-serializers";
-import { RequestHandler, Response } from 'express'
+import { RequestHandler, Response, Application, Request } from 'express'
 
-export default class BadanExpresser extends BadanCoreSerializer{
+export class BadanExpresser extends BadanCoreSerializer{
     responder (res:Response):Respond{
         return (status:number,response:any)=>{
             res.status(status).send(response);
@@ -15,4 +15,4 @@ export default class BadanExpresser extends BadanCoreSerializer{
     }
 }
 
-export {Respond}
+export { Respond, Use, Response, Request, Application }
