@@ -1,6 +1,5 @@
-import { Application } from "express";
 import { StandardApi } from "../standard_api/standard_api.js";
-import { BadanAuthSerializer, BadanCoreSerializer } from "badan-serializers";
+import { Application, BadanAuthSerializer, BadanCoreSerializer } from "badan-serializers";
 import { BadanDefaultCoreSerializer } from "default_core.js";
 import { BadanDefaultAuthenticator } from "default_authenticator.js";
 
@@ -8,7 +7,6 @@ import { BadanDefaultAuthenticator } from "default_authenticator.js";
 export class BadanModule {
     buffer:StandardApi[]=[];
     prefixUrl:string;
-    app:Application;
 
     subModules:BadanModule[]=[]
     coreSerializer:BadanCoreSerializer=new BadanDefaultCoreSerializer()
@@ -17,11 +15,21 @@ export class BadanModule {
     constructor(prefixUrl:string=""){
         this.prefixUrl=prefixUrl
     }
+    
+    setAllListeners(app:Application){
+        this.setAPIsListeners(app);
+        this.setModulesListeners(app)
+    }
 
     setAPIsListeners(app:Application){
         this.buffer.map(api=>this.setListener(app,api));
     }
 
+    setModulesListeners(app:Application){
+        this.subModules.map( module=>module.setAllListeners(app) )
+    }
+
+    /**@todo: relocate the setListener to the core-serializer and the expresser */
     setListener(app:Application,api:StandardApi){
         switch(api.method){
             case "Get":
