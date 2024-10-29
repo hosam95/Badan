@@ -1,9 +1,9 @@
-import { RequestHandler, Responder } from "types";
+import { RequestHandler, RequestMethod, Responder } from "types";
 
 export abstract class BadanApiSerializer{
 
     abstract url:string;
-    abstract method:"Get"|"Post"|"Put"|"Delete"|"Patch";
+    abstract method:RequestMethod;
     abstract description:string;
 
 

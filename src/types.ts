@@ -5,3 +5,5 @@ export type Respond = (status:number,response:any)=> void
 export type Use = (...handlers:any[])=>void
 
 export type RequestHandler = (req:any,res:Respond,...next:RequestHandler[])=>void
+
+export type RequestMethod = "Get"|"Post"|"Put"|"Delete"|"Patch"|"All";
