@@ -17,6 +17,7 @@
   "author": "Hosam Saeed",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^22.8.2",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   }
