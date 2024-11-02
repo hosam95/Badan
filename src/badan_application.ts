@@ -1,7 +1,6 @@
 import { Application, Use } from "badan-serializers";
 import { BadanModule } from "./module/badan_module.js";
 
-/**@todo: seperate express from this layer */
 export class Badan extends BadanModule{
     app:Application;
     
