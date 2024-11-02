@@ -1,7 +1,7 @@
 import { StandardApi } from "../standard_api/standard_api.js";
 import { Application, BadanAuthSerializer, BadanCoreSerializer } from "badan-serializers";
-import { BadanDefaultCoreSerializer } from "default_core.js";
-import { BadanDefaultAuthenticator } from "default_authenticator.js";
+import { BadanDefaultCoreSerializer } from "../default_core.js";
+import { BadanDefaultAuthenticator } from "../default_authenticator.js";
 
 export class BadanModule {
     buffer:StandardApi[]=[];
