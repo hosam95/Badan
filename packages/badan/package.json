@@ -2,7 +2,7 @@
   "name": "badan",
   "version": "0.1.0",
   "description": "A node.js typescript framework on top of express",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsup"
