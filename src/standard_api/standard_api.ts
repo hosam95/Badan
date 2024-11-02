@@ -32,7 +32,7 @@ export abstract class StandardApi{
         this.handler=this.handler.bind(this);
     }
     
-    handler(req:any,res:Response){
+    handler(req:any,res:any){
         
         // parse the (req,res) of Express to (req,respond) of Badan
         this.pipe[0](req as RequestData, this.responder(res),...this.pipe.slice(1));
