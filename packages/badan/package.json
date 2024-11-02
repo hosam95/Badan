@@ -28,5 +28,8 @@
   },
   "overrides": {
     "rimraf": "^4.0.0"
+  },
+  "dependencies": {
+    "badan-expresser": "^1.0.0"
   }
 }
