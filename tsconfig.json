@@ -10,7 +10,8 @@
         "sourceMap": true,
         "strict": true,
         "strictNullChecks": true,
-        "outDir": "dist", //Specifies the transpiler directory.         
+        "outDir": "dist", //Specifies the transpiler directory.  
+        "lib":["ESNext"]     
     },
     "include": ["./**/*"],
 }
