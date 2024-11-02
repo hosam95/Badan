@@ -2,7 +2,7 @@
 import typia from 'typia';
 import { schema_to_json } from '../DocGen/typia_schema_parser.js';
 
-import { RequestHandler, Respond, Responder } from 'badan-serializers'
+import { RequestHandler, RequestMethod, Respond, Responder } from 'badan-serializers'
 import { BadanPipe, RequestData } from 'types.js';
 
 /**@todo: consider writing the input validator by your self using the input schemas to avoid redundancy but check the performance in comparison to typia */
@@ -22,7 +22,7 @@ export abstract class StandardApi{
     body_schema?=typia.llm.schema<any>()
     
     abstract url:string;
-    method:"Get"|"Post"|"Put"|"Delete"|"Patch"='Get'
+    method:RequestMethod='Get'
     description:string=''
 
 
@@ -56,7 +56,6 @@ export abstract class StandardApi{
         }
 
         next[0](req,respond,...next.slice(1));
-
     }
 
     generateDocumentationMD(){
