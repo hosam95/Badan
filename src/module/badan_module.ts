@@ -3,25 +3,24 @@ import { Application, BadanAuthSerializer, BadanCoreSerializer } from "badan-ser
 import { BadanDefaultCoreSerializer } from "default_core.js";
 import { BadanDefaultAuthenticator } from "default_authenticator.js";
 
-/**@todo: implement an Application type in the badan-serializers package */
 export class BadanModule {
     buffer:StandardApi[]=[];
-    prefixUrl:string;
+    private prefixUrl:string;
 
     subModules:BadanModule[]=[]
-    coreSerializer:BadanCoreSerializer=new BadanDefaultCoreSerializer()
-    authenticator:BadanAuthSerializer=new BadanDefaultAuthenticator()
+    protected coreSerializer:BadanCoreSerializer=new BadanDefaultCoreSerializer()
+    protected authenticator:BadanAuthSerializer=new BadanDefaultAuthenticator()
 
     constructor(prefixUrl:string=""){
         this.prefixUrl=prefixUrl
     }
     
     setAllListeners(app:Application){
-        this.setAPIsListeners(app);
+        this.setApisListeners(app);
         this.setModulesListeners(app)
     }
 
-    setAPIsListeners(app:Application){
+    setApisListeners(app:Application){
         this.buffer.map(api=>this.setListener(app,api));
     }
 
@@ -29,28 +28,7 @@ export class BadanModule {
         this.subModules.map( module=>module.setAllListeners(app) )
     }
 
-    /**@todo: relocate the setListener to the core-serializer and the expresser */
-    setListener(app:Application,api:StandardApi){
-        switch(api.method){
-            case "Get":
-                app.get(this.prefixUrl+api.url,api.handler)
-                break;
-            case "Post":
-                app.post(this.prefixUrl+api.url,api.handler)
-                break;
-            case "Put":
-                app.put(this.prefixUrl+api.url,api.handler)
-                break;
-            case "Delete":
-                app.delete(this.prefixUrl+api.url,api.handler)
-                break;
-            case "Patch":
-                app.patch(this.prefixUrl+api.url,api.handler)
-                break;
-            default:
-                throw(Error(`invalid requiste method: '${api.method}' at ${api.constructor.name}`));
-        }
-    }
+    setListener(app:Application,api:StandardApi){};
 
     generateDocumentationMD(){}
 
@@ -95,24 +73,40 @@ export class BadanModule {
         this.buffer.push(api);
     }
 
-    appendModule(module:BadanModule){
-        module=this.passModuleSerializers(module);
-        this.subModules.push(module);
-    }
-
     private passApiSerializers(api:StandardApi):StandardApi{
-        //set the [responder, authenticate, roleAuthorization] methods of the api before pushing it to the buffer
+        //set the [responder, authenticate, roleAuthorization] methods of the api & inject the prefixUrl to the url before pushing it to the buffer
         api.responder=this.coreSerializer.responder;
         api.authenticate=this.authenticator.authenticate
         api.roleAuthorization=this.authenticator.roleAuthorization
+
+        api.url=this.prefixUrl+api.url;
         
         return api;
     }
+    
+    appendModule(module:BadanModule){
+        module.updateSerializers(this.coreSerializer,this.authenticator,this.prefixUrl);
+        this.subModules.push(module);
+    }
 
-    private passModuleSerializers(module:BadanModule):BadanModule{
-        //set the [coreSerializer, authenticator] serializers of the model before pushing it to the buffer
-        module.coreSerializer=this.coreSerializer;
-        module.authenticator=this.authenticator;
-        return module;
+    updateSerializers(coreSerializer:BadanCoreSerializer,authenticator:BadanAuthSerializer,prefixUrl:string=""){
+        //set the [coreSerializer, authenticator] serializers of the model & inject the prefixUrl to it 
+        this.coreSerializer=coreSerializer;
+        this.authenticator=authenticator;
+        this.prefixUrl=prefixUrl+this.prefixUrl;
+
+        //inherit the setListener from the core-serializer
+        this.setListener=this.coreSerializer.setListener;
+
+        this.updateApisSerializers();
+        this.updateSubModulesSerializers();
+    }
+
+    private updateApisSerializers(){
+        this.buffer.map( (api)=>this.passApiSerializers(api) );
+    }
+
+    private updateSubModulesSerializers(){
+        this.subModules.map( (module)=>module.updateSerializers(this.coreSerializer,this.authenticator) );
     }
 }
