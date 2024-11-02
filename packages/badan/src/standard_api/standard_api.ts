@@ -3,7 +3,7 @@ import typia from 'typia';
 import { schema_to_json } from '../DocGen/typia_schema_parser.js';
 
 import { RequestHandler, RequestMethod, Respond, Responder } from 'badan-serializers'
-import { BadanPipe, RequestData } from 'types.js';
+import { BadanPipe, RequestData } from '../types.js';
 
 /**@todo: consider writing the input validator by your self using the input schemas to avoid redundancy but check the performance in comparison to typia */
 
