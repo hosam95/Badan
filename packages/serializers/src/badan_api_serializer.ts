@@ -1,4 +1,4 @@
-import { RequestHandler, RequestMethod, Responder } from "types";
+import { RequestHandler, RequestMethod, Responder } from "./types.js";
 
 export abstract class BadanApiSerializer{
 

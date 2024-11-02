@@ -1,4 +1,4 @@
-import { RequestHandler } from "types";
+import { RequestHandler } from "./types.js";
 
 export abstract class BadanAuthSerializer{
 

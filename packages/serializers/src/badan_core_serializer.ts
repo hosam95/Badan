@@ -1,6 +1,6 @@
-import { Application } from "application";
-import { BadanApiSerializer } from "badan_api_serializer";
-import { Respond, Use } from "types";
+import { Application } from "./application.js";
+import { BadanApiSerializer } from "./badan_api_serializer.js";
+import { Respond, Use } from "./types.js";
 
 export abstract class BadanCoreSerializer{
 
