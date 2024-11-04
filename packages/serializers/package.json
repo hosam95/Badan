@@ -1,8 +1,10 @@
 {
   "name": "badan-serializers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Includes all abstract interfaces for Badan serializers and all Badan serialization related code.",
   "main": "./dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup"
   },
@@ -17,8 +19,11 @@
   "author": "Hosam Saeed",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.6",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security"
   }
 }
