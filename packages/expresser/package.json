@@ -1,8 +1,10 @@
 {
   "name": "badan-expresser",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A serializer to use Express as the core of Badan",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup"
   },
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/hosam95/Badan-Expresser#readme",
   "dependencies": {
+    "badan-serializers": "^1.0.1",
     "express": "^4.21.1"
   },
   "devDependencies": {
