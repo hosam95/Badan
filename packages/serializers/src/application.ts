@@ -1,5 +1,5 @@
-import EventEmitter from 'events';
-import http from 'http';
+import EventEmitter from 'node:events';
+import http from 'node:http';
 
 //this is a trimmed copy of the Application type in Express
 export abstract class Application extends EventEmitter {
