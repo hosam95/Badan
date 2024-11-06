@@ -1,9 +1,12 @@
 
 import typia from 'typia';
+import * as _samchon_openapi from '@samchon/openapi';
+
 import { schema_to_json } from '../DocGen/typia_schema_parser.js';
 
-import { RequestHandler, RequestMethod, Respond, Responder } from 'badan-serializers'
+import {type RequestHandler,type RequestMethod, type Respond,type Responder } from 'badan-serializers'
 import { BadanPipe, RequestData } from '../types.js';
+
 
 /**@todo: consider writing the input validator by your self using the input schemas to avoid redundancy but check the performance in comparison to typia */
 
@@ -15,11 +18,11 @@ export abstract class StandardApi{
     allowed_roles:Array<string>=[]
 
 
-    query_validator:(input:unknown)=>typia.IValidation<any>=typia.createValidate<any>()
-    body_validator:(input:unknown)=>typia.IValidation<any>=typia.createValidate<any>()
+    query_validator?:(input:unknown)=>typia.IValidation<any>;
+    body_validator?:(input:unknown)=>typia.IValidation<any>;
 
-    query_schema?=typia.llm.schema<any>()
-    body_schema?=typia.llm.schema<any>()
+    query_schema?: _samchon_openapi.ILlmSchema;
+    body_schema?: _samchon_openapi.ILlmSchema;
     
     abstract url:string;
     method:RequestMethod='Get'
@@ -47,8 +50,8 @@ export abstract class StandardApi{
     
     
     validateInput(req:any,respond:Respond, ...next:BadanPipe){
-        let queryValidation=this.query_validator(req.query)
-        let bodyValidation=this.body_validator(req.body)
+        let queryValidation=this.query_validator? this.query_validator(req.query) : {success:true} as typia.IValidation.ISuccess;
+        let bodyValidation=this.body_validator? this.body_validator(req.body) : {success:true} as typia.IValidation.ISuccess;
 
         if(!queryValidation.success || !bodyValidation.success ){
             respond(400,{'message':'Bad Request, '+queryValidation.success? '': `query errors:\n${queryValidation.errors}\n`+bodyValidation.success? '': `body errors:\n${bodyValidation.errors}`});

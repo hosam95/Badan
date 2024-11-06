@@ -1,9 +1,14 @@
 {
   "name": "badan",
-  "version": "0.1.1",
+  "version": "0.1.11",
   "description": "A node.js typescript framework on top of express",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "scripts": {
     "build": "tsup"
   },
@@ -30,6 +35,7 @@
     "rimraf": "^4.0.0"
   },
   "dependencies": {
-    "badan-expresser": "^1.0.0"
+    "badan-expresser": "^1.0.3",
+    "badan-serializers": "^1.0.3"
   }
 }
