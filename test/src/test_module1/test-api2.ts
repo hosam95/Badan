@@ -1,22 +1,26 @@
 import { RequestData, StandardApi, Respond } from "badan";
 import * as typia from 'typia'
 
-type body={
-    stops:{
-        type:'point',
-        coordinates:number[],
-    },
-    lables:string[]
+type query={
+    param1:string,
+    param2:number,
+    param3:boolean,
+    param4:'male'|'female',
+    param5:any,
 }
 
-type query={
-    lines_ids:string[];
+type body={
+    param6:Array<true | false>,
+    param7:{
+        subparam1:string,
+        subparam2:number
+    }[],
+    param8:any[]
 }
 
 class TestApi2 extends StandardApi{
     url: string='test/2';
     description: string='the second test api';
-
 
     query_validator=typia.createValidate<query>();
     body_validator=typia.createValidate<body>();
@@ -26,16 +30,16 @@ class TestApi2 extends StandardApi{
 
 
     Logic(data:RequestData,respond:Respond){
-        let bus_stations:string[]=data.body.lables.map((lable:any)=>{
-            if(lable=="bus station"){
-                return lable;
+        let list:string[]=data.body.param7.map((objct:any)=>{
+            if(objct.subparam2 < 100){
+                return objct.subparam1;
             }
         })
 
-        if(bus_stations.length==0){
-            respond(200,{"message":"has bus station stops"})
+        if(list.length==0){
+            respond(200,{"message":`count : ${list.length}`})
         }
-        respond(200,{"message":"doesn't has bus station stops"})
+        respond(200,{"message":"count: Zero"})
     }
 }
 

@@ -2,10 +2,17 @@ import { RequestData, StandardApi, Respond } from "badan";
 import * as typia from 'typia'
 
 type body={
-    name:string,
-    age:number,
-    hight:number,
-    gender:'male'|'female'
+    param1:string,
+    param2:number,
+    param3:boolean,
+    param4:'male'|'female',
+    param5:any,
+    param6:Array<true | false>,
+    param7:{
+        subparam1:string,
+        subparam2:number
+    },
+    param8:any[]
 }
 
 class TestApi1 extends StandardApi{
@@ -16,10 +23,10 @@ class TestApi1 extends StandardApi{
     body_schema?=typia.llm.schema<body>();
 
     Logic(data:RequestData,respond:Respond){
-        if(data.body.age < 18){
-            respond(200,{"message":`hi ${data.body.name}, you are a minor`})
+        if(data.body.param6){
+            respond(200,{"message":`hi ${data.body.param1}, you are a minor`})
         }
-        respond(200,{"message":`hi ${data.body.name}, you are an adulte`})
+        respond(200,{"message":`hi ${data.body.param1}, you are an adulte`})
     }
 }
 
