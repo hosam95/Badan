@@ -1,4 +1,4 @@
-import { Respond } from "badan-serializers";
+import {type Respond } from "badan-serializers";
 
 export interface RequestData<T = any>{
     body:any;
@@ -10,4 +10,4 @@ export interface RequestData<T = any>{
 
 export type BadanPipe= Array<(req:RequestData,res:Respond,...next:BadanPipe)=>void>
 
-export { Respond }
+export { type Respond }
