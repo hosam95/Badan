@@ -10,4 +10,10 @@ export interface RequestData<T = any>{
 
 export type BadanPipe= Array<(req:RequestData,res:Respond,...next:BadanPipe)=>void>
 
+
+export type DocSection= {
+    doc:string,
+    link:string
+}
+
 export { type Respond }

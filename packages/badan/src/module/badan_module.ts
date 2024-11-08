@@ -2,17 +2,23 @@ import { StandardApi } from "../standard_api/standard_api.js";
 import { Application, BadanAuthSerializer, BadanCoreSerializer } from "badan-serializers";
 import { BadanDefaultCoreSerializer } from "../default_core.js";
 import { BadanDefaultAuthenticator } from "../default_authenticator.js";
+import { prettifyHeader } from "../DocGen/pretify.js";
+import { DocSection } from "types.js";
 
 export class BadanModule {
     buffer:StandardApi[]=[];
     private prefixUrl:string;
+    name:string;
+    description:string;
 
     subModules:BadanModule[]=[]
     protected coreSerializer:BadanCoreSerializer=new BadanDefaultCoreSerializer()
     protected authenticator:BadanAuthSerializer=new BadanDefaultAuthenticator()
 
-    constructor(prefixUrl:string=""){
+    constructor(name:string, moduleDescription:string='', prefixUrl:string=""){
+        this.name=name;
         this.prefixUrl=prefixUrl
+        this.description=moduleDescription;
     }
     
     setAllListeners(app:Application){
@@ -29,9 +35,6 @@ export class BadanModule {
     }
 
     setListener(app:Application,api:StandardApi){};
-
-    generateDocumentationMD(){}
-
 
     append(api:StandardApi){
         api=this.passApiSerializers(api);
@@ -109,4 +112,26 @@ export class BadanModule {
     private updateSubModulesSerializers(){
         this.subModules.map( (module)=>module.updateSerializers(this.coreSerializer,this.authenticator) );
     }
+
+    
+    generateDocumentationMD():DocSection{
+        let pretty_header= prettifyHeader(this.name)
+        let subModules= this.subModules.map((subModule)=>subModule.generateDocumentationMD())
+        let doc:DocSection={
+            doc:`## ${pretty_header.header}  \n\n${this.get_hr()}\n ${this.description}\n${subModules.length>0? `#### Table of Contents  \n\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''} ${subModules.map(doc=>`+ ${doc.link}`)}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`)}`:""}\n`,
+            link:`[${pretty_header.header}](#${pretty_header.link})\n`
+        }
+        return doc
+    }
+
+    constructApisDocs(){
+        if(this.buffer.length==0)return '';
+
+        return `#### *APIs*:\n ${(this.buffer.map((api)=>api.generateDocumentationMD()))}\n\n`;
+    }
+
+    protected get_hr(){
+        return `<hr style="width:70%;margin-left:1%">`
+    }
+
 }

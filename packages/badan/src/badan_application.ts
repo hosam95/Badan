@@ -4,9 +4,9 @@ import { BadanModule } from "./module/badan_module.js";
 export class Badan extends BadanModule{
     app:Application;
     
-    constructor(app:Application,options?:{}){
+    constructor(app:Application,options?:{name:string}){
         /**@todo: expect a badan-authenticator, badan_core_serializer  in options*/
-        super()
+        super(options?.name??"App")
         this.app=app;
         this.use=this.coreSerializer.user(this.app)
     }
@@ -18,4 +18,8 @@ export class Badan extends BadanModule{
     }
 
     use:Use;
+
+    protected override get_hr(): string {
+        return '---'
+    }
 }
