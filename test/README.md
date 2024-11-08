@@ -67,7 +67,7 @@
 
 
 
-<hr style="width:70%;margin:auto;height:2px">
+<hr style="width:70%;margin:auto;height:1px">
 
 
 ## Second Test Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
@@ -139,7 +139,7 @@
 </details>
 
 
-<hr style="width:70%;margin:auto;height:2px">
+<hr style="width:70%;margin:auto;height:1px">
 
 ## Sub Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
 <p>A module to test the badan package</p>
@@ -195,7 +195,7 @@
 </details>
 
 
-<hr style="width:70%;margin:auto;height:2px">
+<hr style="width:70%;margin:auto;height:1px">
 
 
 
@@ -247,7 +247,7 @@
 ```
 </details>
 
-<hr style="width:70%;margin:auto;height:2px">
+<hr style="width:70%;margin:auto;height:1px">
 
 
 
