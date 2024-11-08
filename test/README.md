@@ -6,7 +6,7 @@
 
 
 
-## Test Module  <span style="color:green;font-size:60%;font-family:courier;">REST<span style="color:blue;font-size:80%">Api</span></span>
+## Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <hr style="width:70%;margin-left:10px">
 <p>A module to test the badan package</p>
 
