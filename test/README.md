@@ -16,8 +16,7 @@
 <summary><b>Test Api 1</b></summary>
 <p>the first test api</p>
 
-**Method**: ***Post***
-
+**Method**: ***Post***  
 **Url**: `/test-module/test-module/test/1`
 
 ***Body***:
