@@ -6,7 +6,7 @@ export class Badan extends BadanModule{
     
     constructor(app:Application,options?:{name:string}){
         /**@todo: expect a badan-authenticator, badan_core_serializer  in options*/
-        super(options?.name??"App")
+        super(options?.name??"Documentation")
         this.app=app;
         this.use=this.coreSerializer.user(this.app)
     }
@@ -19,7 +19,11 @@ export class Badan extends BadanModule{
 
     use:Use;
 
-    protected override get_hr(): string {
+    protected override hrTag(): string {
         return '---'
+    }
+
+    protected override moduleTypeTag(): string {
+        return ""
     }
 }
