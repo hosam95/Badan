@@ -10,6 +10,7 @@ export class BadanModule {
     private prefixUrl:string;
     name:string;
     description:string;
+    type:"rest"="rest"
 
     subModules:BadanModule[]=[]
     protected coreSerializer:BadanCoreSerializer=new BadanDefaultCoreSerializer()
@@ -118,7 +119,7 @@ export class BadanModule {
         let pretty_header= prettifyHeader(this.name)
         let subModules= this.subModules.map((subModule)=>subModule.generateDocumentationMD())
         let doc:DocSection={
-            doc:`## ${pretty_header.header}  \n\n${this.get_hr()}\n ${this.description}\n${subModules.length>0? `#### Table of Contents  \n\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''} ${subModules.map(doc=>`+ ${doc.link}`)}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`)}`:""}\n`,
+            doc:`## ${pretty_header.header}  ${this.moduleTypeTag()}\n${this.hrTag()}\n${this.description.trim()!==''?"<p>"+this.description+"</p>\n\n":""}${subModules.length>0? `#### Table of Contents\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''}${subModules.map(doc=>`+ ${doc.link}`).join('')}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`).join('')}`:""}\n`,
             link:`[${pretty_header.header}](#${pretty_header.link})\n`
         }
         return doc
@@ -127,11 +128,14 @@ export class BadanModule {
     constructApisDocs(){
         if(this.buffer.length==0)return '';
 
-        return `#### *APIs*:\n ${(this.buffer.map((api)=>api.generateDocumentationMD()))}\n\n`;
+        return `#### *APIs*:\n${(this.buffer.map((api)=>api.generateDocumentationMD())).join("")}\n\n`;
     }
 
-    protected get_hr(){
-        return `<hr style="width:70%;margin-left:1%">`
+    protected hrTag(){
+        return `<hr style="width:70%;margin-left:10px">`
     }
 
+    protected moduleTypeTag(){
+        return `<t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>`
+    }
 }
