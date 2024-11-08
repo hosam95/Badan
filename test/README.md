@@ -1,5 +1,4 @@
 ## Documentation  
----
 #### Table of Contents
 + [Test Module](#test-module)
 + [Second Test Module](#second-test-module)
@@ -7,7 +6,7 @@
 
 
 ## Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
-<hr style="width:70%;margin-left:10px">
+
 <p>A module to test the badan package</p>
 
 
@@ -68,11 +67,10 @@
 
 
 
-
+<hr style="width:70%;margin:auto;height:2px">
 
 
 ## Second Test Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
-<hr style="width:70%;margin-left:10px">
 <p>A module to test the badan package</p>
 
 #### Table of Contents
@@ -141,10 +139,9 @@
 </details>
 
 
-
+<hr style="width:70%;margin:auto;height:2px">
 
 ## Sub Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
-<hr style="width:70%;margin-left:10px">
 <p>A module to test the badan package</p>
 
 
@@ -198,12 +195,11 @@
 </details>
 
 
-
+<hr style="width:70%;margin:auto;height:2px">
 
 
 
 ## Second Test Sub Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
-<hr style="width:70%;margin-left:10px">
 <p>A module to test the badan package</p>
 
 
@@ -251,7 +247,7 @@
 ```
 </details>
 
-
+<hr style="width:70%;margin:auto;height:2px">
 
 
 
