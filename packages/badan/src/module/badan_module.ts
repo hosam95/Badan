@@ -132,6 +132,6 @@ export class BadanModule {
     }
 
     protected moduleTypeTag(){
-        return `$\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$`
+        return `$\\color{green}\\tiny \\texttt {REST}\\color{blue}_{\\texttt {API}}$`
     }
 }
