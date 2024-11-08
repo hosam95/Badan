@@ -18,7 +18,7 @@
   "author": "Hosam Saeed",
   "license": "MIT",
   "dependencies": {
-    "badan": "^0.1.11",
+    "badan": "^0.2.7",
     "express": "^4.21.1"
   },
   "devDependencies": {

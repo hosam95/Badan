@@ -16,7 +16,7 @@ type body={
 }
 
 class TestApi1 extends StandardApi{
-    url: string='test/1';
+    url: string='/test/1';
     description: string='the first test api';
 
     body_validator=typia.createValidate<body>();

@@ -18,9 +18,9 @@ type body={
     param8:any[]
 }
 
-class TestApi2 extends StandardApi{
-    url: string='test/2';
-    description: string='the second test api';
+class TestApi3 extends StandardApi{
+    url: string='/test/3';
+    description: string='the thered test api';
 
     query_validator=typia.createValidate<query>();
     body_validator=typia.createValidate<body>();
@@ -43,4 +43,4 @@ class TestApi2 extends StandardApi{
     }
 }
 
-export default new TestApi2()
+export default new TestApi3()
