@@ -19,10 +19,6 @@ export class Badan extends BadanModule{
 
     use:Use;
 
-    protected override hrTag(): string {
-        return '---'
-    }
-
     protected override moduleTypeTag(): string {
         return ""
     }

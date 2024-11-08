@@ -74,7 +74,7 @@ export abstract class StandardApi{
         
         let pretty_header= prettifyHeader(this.constructor.name)
         
-        return `<details>\n<summary><b>${pretty_header.header}</b></summary>\n<p>${this.description}</p>\n\n**Method**: ***${this.method}***\n**Url**: ${'`'+this.url+'`'}\n\n${(req_body? "***Body***:\n"+"```\n"+req_body+"\n```\n":"")}${(req_query? "***Query***:\n"+"```\n"+req_query+"\n```\n":"")}</details>\n`
+        return `<details>\n<summary><b>${pretty_header.header}</b></summary>\n<p>${this.description}</p>\n\n**Method**: ***${this.method}***  \n**Url**: ${'`'+this.url+'`'}\n\n${(req_body? "***Body***:\n"+"```\n"+req_body+"\n```\n":"")}${(req_query? "***Query***:\n"+"```\n"+req_query+"\n```\n":"")}</details>\n`
     }
 
     authenticate: RequestHandler=(req:any,respond:Respond,...next:RequestHandler[])=>{};

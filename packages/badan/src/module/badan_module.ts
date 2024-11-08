@@ -119,7 +119,7 @@ export class BadanModule {
         let pretty_header= prettifyHeader(this.name)
         let subModules= this.subModules.map((subModule)=>subModule.generateDocumentationMD())
         let doc:DocSection={
-            doc:`## ${pretty_header.header}  ${this.moduleTypeTag()}\n${this.hrTag()}\n${this.description.trim()!==''?"<p>"+this.description+"</p>\n\n":""}${subModules.length>0? `#### Table of Contents\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''}${subModules.map(doc=>`+ ${doc.link}`).join('')}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`).join('')}`:""}\n`,
+            doc:`## ${pretty_header.header}  ${this.moduleTypeTag()}\n${this.description.trim()!==''?"<p>"+this.description+"</p>\n\n":""}${subModules.length>0? `#### Table of Contents\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''}${subModules.map(doc=>`+ ${doc.link}`).join('')}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`).join('')}`:""}\n`,
             link:`[${pretty_header.header}](#${pretty_header.link})\n`
         }
         return doc
@@ -131,11 +131,7 @@ export class BadanModule {
         return `#### *APIs*:\n${(this.buffer.map((api)=>api.generateDocumentationMD())).join("")}\n\n`;
     }
 
-    protected hrTag(){
-        return `<hr style="width:70%;margin-left:10px">`
-    }
-
     protected moduleTypeTag(){
-        return `<t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>`
+        return `$\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$`
     }
 }

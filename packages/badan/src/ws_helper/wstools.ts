@@ -54,5 +54,5 @@ export async function resend_queue(socket:Socket,u_id:string){
 
 
 function socketTypeTag(){
-    return `<t style="color:green;font-size:70%;font-family:courier;">W<t style="color:orange;">S<t style="font-size:60%">ocket</t></t></t>`
+    return "${\color{green}\tiny \textbf {W}\color{orange} \textbf {S}}$"
 }

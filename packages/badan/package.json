@@ -1,6 +1,6 @@
 {
   "name": "badan",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A node.js typescript framework on top of express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
