@@ -6,7 +6,6 @@
 
 
 ## Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
-
 <p>A module to test the badan package</p>
 
 
@@ -39,7 +38,7 @@
 <summary><b>Test Api 2</b></summary>
 <p>the second test api</p>
 
-**Method**: ***Get***
+**Method**: ***Get***  
 **Url**: `/test-module/test-module/test/2`
 
 ***Body***:
@@ -69,7 +68,8 @@
 
 
 
-## Second Test Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
+
+## Second Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 #### Table of Contents
@@ -82,7 +82,7 @@
 <summary><b>Test Api 3</b></summary>
 <p>the thered test api</p>
 
-**Method**: ***Get***
+**Method**: ***Get***  
 **Url**: `/test-module/test-module/test/3`
 
 ***Body***:
@@ -111,7 +111,7 @@
 <summary><b>Test Api 4</b></summary>
 <p>the forth test api</p>
 
-**Method**: ***Put***
+**Method**: ***Put***  
 **Url**: `/test-module/test-module/test/4`
 
 ***Body***:
@@ -139,7 +139,8 @@
 
 
 
-## Sub Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
+
+## Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 
@@ -148,7 +149,7 @@
 <summary><b>Test Api 5</b></summary>
 <p>the 5th test api</p>
 
-**Method**: ***Get***
+**Method**: ***Get***  
 **Url**: `/test-module/test-module/test-module/test-module/test-module/:test/5`
 
 ***Query***:
@@ -166,7 +167,7 @@
 <summary><b>Test Api 6</b></summary>
 <p>the 6th test api</p>
 
-**Method**: ***Put***
+**Method**: ***Put***  
 **Url**: `/test-module/test-module/test-module/test-module/test-module/test/6`
 
 ***Body***:
@@ -195,7 +196,9 @@
 
 
 
-## Second Test Sub Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
+
+
+## Second Test Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 
@@ -204,7 +207,7 @@
 <summary><b>Test Api 7</b></summary>
 <p>the 7th test api</p>
 
-**Method**: ***Get***
+**Method**: ***Get***  
 **Url**: `/test-module/test-module/test-module/test-module/test-module/:test/7`
 
 ***Query***:
@@ -222,7 +225,7 @@
 <summary><b>Test Api 8</b></summary>
 <p>the 8th test api</p>
 
-**Method**: ***Put***
+**Method**: ***Put***  
 **Url**: `/test-module/test-module/test-module/test-module/test-module/test/8`
 
 ***Body***:
@@ -242,6 +245,7 @@
 }
 ```
 </details>
+
 
 
 
