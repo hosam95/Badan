@@ -6,7 +6,7 @@
 
 
 
-## Test Module  <t style="color:green;font-size:60%;font-family:courier;">REST<t style="color:blue;font-size:80%">Api</t></t>
+## Test Module  <span style="color:green;font-size:60%;font-family:courier;">REST<span style="color:blue;font-size:80%">Api</span></span>
 <hr style="width:70%;margin-left:10px">
 <p>A module to test the badan package</p>
 
