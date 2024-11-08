@@ -6,6 +6,7 @@ import { schema_to_json } from '../DocGen/typia_schema_parser.js';
 
 import {type RequestHandler,type RequestMethod, type Respond,type Responder } from 'badan-serializers'
 import { BadanPipe, RequestData } from '../types.js';
+import { prettifyHeader } from '../DocGen/pretify.js';
 
 
 /**@todo: consider writing the input validator by your self using the input schemas to avoid redundancy but check the performance in comparison to typia */
@@ -61,7 +62,7 @@ export abstract class StandardApi{
         next[0](req,respond,...next.slice(1));
     }
 
-    generateDocumentationMD(){
+    generateDocumentationMD():string{
         let req_body,req_query;
         if(this.body_schema){
             req_body= schema_to_json(this.body_schema)
@@ -71,7 +72,9 @@ export abstract class StandardApi{
             req_query= schema_to_json(this.query_schema)
         }
         
-        return `## ${this.constructor.name} \n${this.description}\n\n#### Url: *${this.method}* ${'`'+this.url+'`'}\n\n${(req_body? "#### Body:\n"+"```\n"+req_body+"\n```":"")}\n\n${(req_query? "#### Query:\n"+"```\n"+req_query+"```\n":"")}---\n` 
+        let pretty_header= prettifyHeader(this.constructor.name)
+        
+        return `<details>\n<summary>${pretty_header.header}</summary>\n<br> \n${this.description}\n\n **Method**: ***${this.method}***\n **Url**: ${'`'+this.url+'`'}\n\n ${(req_body? " ***Body***:\n"+"```\n"+req_body+"\n```":"")}\n\n${(req_query? " ***Query***:\n"+"```\n"+req_query+"\n```\n":"")}</details>\n\n`
     }
 
     authenticate: RequestHandler=(req:any,respond:Respond,...next:RequestHandler[])=>{};
