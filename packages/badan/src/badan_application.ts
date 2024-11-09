@@ -1,5 +1,6 @@
 import { Application, Use } from "badan-serializers";
 import { BadanModule } from "./module/badan_module.js";
+import { DocSection } from "types.js";
 
 export class Badan extends BadanModule{
     app:Application;
@@ -21,5 +22,14 @@ export class Badan extends BadanModule{
 
     protected override moduleTypeTag(): string {
         return ""
+    }
+
+    generateDocumentationMD(): DocSection {
+        let doc= super.generateDocumentationMD()
+        
+        // remove the first two '#' of the header to distinguish between application-header and module-headers.
+        doc.doc=doc.doc.slice(2)
+        
+        return doc
     }
 }

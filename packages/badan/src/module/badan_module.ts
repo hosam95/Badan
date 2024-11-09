@@ -119,7 +119,7 @@ export class BadanModule {
         let pretty_header= prettifyHeader(this.name)
         let subModules= this.subModules.map((subModule)=>subModule.generateDocumentationMD())
         let doc:DocSection={
-            doc:`## ${pretty_header.header}  ${this.moduleTypeTag()}\n${this.description.trim()!==''?"<p>"+this.description+"</p>\n\n":""}${subModules.length>0? `#### Table of Contents\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''}${subModules.map(doc=>`+ ${doc.link}`).join('')}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`).join('')}`:""}\n`,
+            doc:`### ${pretty_header.header}  ${this.moduleTypeTag()}\n${this.description.trim()!==''?"<p>"+this.description+"</p>\n\n":""}${subModules.length>0? `#### Table of Contents\n${this.buffer.length>0? `+ [APIs](#apis)\n`:''}${subModules.map(doc=>`+ ${doc.link}`).join('')}`:""}\n${this.constructApisDocs()}\n\n${subModules.length>0? `${subModules.map(doc=>`${doc.doc}\n`).join('')}`:""}\n`,
             link:`[${pretty_header.header}](#${pretty_header.link})\n`
         }
         return doc
