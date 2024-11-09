@@ -1,4 +1,4 @@
-import {type Respond } from "badan-serializers";
+import {BadanAuthSerializer, BadanCoreSerializer, type Respond } from "badan-serializers";
 
 export interface RequestData<T = any>{
     body:any;
@@ -14,6 +14,13 @@ export type BadanPipe= Array<(req:RequestData,res:Respond,...next:BadanPipe)=>vo
 export type DocSection= {
     doc:string,
     link:string
+}
+
+export type ApplicationOptions= {
+    name?:string,
+    description?:string,
+    coreSerializer?:BadanCoreSerializer,
+    authenticator?:BadanAuthSerializer,
 }
 
 export { type Respond }
