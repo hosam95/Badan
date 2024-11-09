@@ -1,11 +1,11 @@
-## Documentation  
+# Documentation  
 #### Table of Contents
 + [Test Module](#test-module)
 + [Second Test Module](#second-test-module)
 
 
 
-## Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
+### Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 
@@ -69,7 +69,7 @@
 
 
 
-## Second Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
+### Second Test Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 #### Table of Contents
@@ -140,7 +140,7 @@
 
 
 
-## Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
+### Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 
@@ -198,7 +198,7 @@
 
 
 
-## Second Test Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
+### Second Test Sub Module  $\color{green}\tiny \texttt {REST}\color{blue}_{\texttt {API}}$
 <p>A module to test the badan package</p>
 
 
