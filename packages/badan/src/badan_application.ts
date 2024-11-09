@@ -1,13 +1,23 @@
 import { Application, Use } from "badan-serializers";
 import { BadanModule } from "./module/badan_module.js";
-import { DocSection } from "types.js";
+import { ApplicationOptions, DocSection } from "types.js";
 
 export class Badan extends BadanModule{
     app:Application;
     
-    constructor(app:Application,options?:{name:string}){
-        /**@todo: expect a badan-authenticator, badan_core_serializer  in options*/
-        super(options?.name??"Documentation")
+    constructor(app:Application,options?:ApplicationOptions){
+        super(options?.name??"Documentation",options?.description)
+
+        // set the coreSerializer from the options object if provided
+        if(options && options.coreSerializer){
+            this.coreSerializer=options.coreSerializer;
+        }
+
+        // set the authenticator from the options object if provided
+        if(options && options.authenticator){
+            this.authenticator= options.authenticator
+        }
+        
         this.app=app;
         this.use=this.coreSerializer.user(this.app)
     }
