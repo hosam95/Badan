@@ -1,6 +1,6 @@
 {
   "name": "badan-serializers",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Includes all abstract interfaces for Badan serializers and all Badan serialization related code.",
   "main": "./dist/index.js",
   "module": "dist/index.mjs",
